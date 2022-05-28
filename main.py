@@ -7,6 +7,12 @@ import conf
 
 
 def main(start_pk: int, stop_pk: int):
+    """
+    A function that returns a list of dictionaries as a file result.json
+    :param start_pk: countdown start, from file conf.py
+    :param stop_pk: stop count, from file conf.py
+    :return: creates a file result.json
+    """
     title_list = get_title_list()
     result = []
     for element in range(start_pk, stop_pk + 1):
@@ -75,6 +81,4 @@ def get_result_json_file(file: json) -> None:
 
 
 if __name__ == '__main__':
-    start = 1
-    stop = 100
-    main(start, stop)
+    main(conf.START, conf.STOP)
