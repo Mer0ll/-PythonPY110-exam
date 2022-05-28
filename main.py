@@ -56,19 +56,35 @@ def get_random_title(lst: list) -> str:
 
 
 def get_year() -> int:
+    """
+    The function returns an arbitrary year
+    :return: arbitrary year
+    """
     return random.randint(1800, 2022)
 
 
-def get_pages():
+def get_pages() -> int:
+    """
+    The function returns an arbitrary number of pages
+    :return: number of pages
+    """
     return random.randint(0, 1000)
 
 
 def get_isbn13() -> str:
+    """
+    The function returns isbn13
+    :return: isbn13
+    """
     faker = Faker()
     return faker.isbn13()
 
 
 def get_rating() -> float:
+    """
+    The function returns an arbitrary rating
+    :return:
+    """
     return round(random.uniform(0, 5), 2)
 
 
@@ -77,6 +93,10 @@ def get_price() -> float:
 
 
 def get_author() -> list:
+    """
+    The function returns a list of arbitrary authors
+    :return: list of arbitrary authors
+    """
     faker = Faker(locale='ru')
     lst = [faker.name() for _ in range(5)]
     num = random.randint(1, 3)
@@ -85,6 +105,11 @@ def get_author() -> list:
 
 
 def get_result_json_file(file: json) -> None:
+    """
+    The function creates result.json
+    :param file: an object json
+    :return: None
+    """
     with open('result.json', 'w', encoding='utf-8') as f:
         f.write(file)
 
