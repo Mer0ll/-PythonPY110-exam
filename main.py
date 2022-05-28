@@ -6,7 +6,7 @@ from faker import Faker
 import conf
 
 
-def main(start_pk: int, stop_pk: int):
+def main(start_pk: int, stop_pk: int) -> None:
     """
     A function that returns a list of dictionaries as a file result.json
     :param start_pk: countdown start, from file conf.py
@@ -98,9 +98,13 @@ def get_author() -> list:
     :return: list of arbitrary authors
     """
     faker = Faker(locale='ru')
-    lst = [faker.name() for _ in range(5)]
-    num = random.randint(1, 3)
-    result_lst = [random.choice(lst) for _ in range(num)]
+    lst = [faker.name() for _ in range(10)]
+    nums = random.randint(1, 3)
+    result_lst = []
+    for num in range(nums):
+        author = random.choice(lst)
+        if author not in result_lst:
+            result_lst.append(author)
     return result_lst
 
 
