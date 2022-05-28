@@ -6,7 +6,7 @@ from faker import Faker
 import conf
 
 
-def main(start_pk, stop_pk):
+def main(start_pk: int, stop_pk: int):
     title_list = get_title_list()
     result = []
     for element in range(start_pk, stop_pk + 1):
@@ -29,18 +29,18 @@ def main(start_pk, stop_pk):
     get_result_json_file(result_json)
 
 
-def get_title_list():
+def get_title_list() -> list:
     with open('books.txt', encoding='utf-8') as f:
         books = f.readlines()
         books = [book.strip()[:-1] for book in books]
         return books
 
 
-def get_random_title(lst):
+def get_random_title(lst: list) -> str:
     return random.choice(lst)
 
 
-def get_year():
+def get_year() -> int:
     return random.randint(1800, 2022)
 
 
@@ -48,20 +48,20 @@ def get_pages():
     return random.randint(0, 1000)
 
 
-def get_isbn13():
+def get_isbn13() -> str:
     faker = Faker()
     return faker.isbn13()
 
 
-def get_rating():
+def get_rating() -> float:
     return round(random.uniform(0, 5), 2)
 
 
-def get_price():
+def get_price() -> float:
     return round(random.uniform(0, 10000), 2)
 
 
-def get_author():
+def get_author() -> list:
     faker = Faker(locale='ru')
     lst = [faker.name() for _ in range(5)]
     num = random.randint(1, 3)
@@ -69,7 +69,7 @@ def get_author():
     return result_lst
 
 
-def get_result_json_file(file):
+def get_result_json_file(file: json) -> None:
     with open('result.json', 'w', encoding='utf-8') as f:
         f.write(file)
 
