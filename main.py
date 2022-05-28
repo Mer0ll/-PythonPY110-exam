@@ -36,6 +36,10 @@ def main(start_pk: int, stop_pk: int):
 
 
 def get_title_list() -> list:
+    """
+    The function returns a list of books
+    :return: list of books
+    """
     with open('books.txt', encoding='utf-8') as f:
         books = f.readlines()
         books = [book.strip()[:-1] for book in books]
@@ -43,6 +47,11 @@ def get_title_list() -> list:
 
 
 def get_random_title(lst: list) -> str:
+    """
+    The function returns a random product
+    :param lst: list of books
+    :return: random books
+    """
     return random.choice(lst)
 
 
